@@ -1,0 +1,139 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dp"
+    android:layout_height="200dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chọn màu:" />
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="2dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/changeCyan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:src="@color/colorCyan" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/changeDoNhat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:src="@color/colorDoNhat" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/changeXanhNuocBienDam"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:src="@color/colorXanhNuocBienDam" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/changeDaCamDam"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:src="@color/colorDaCamNhat" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="2dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/changeXanhNuocBienNhat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:src="@color/colorXanhNuocBienNhat" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/changeDoDam"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:src="@color/colorDoDam" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/changeVang"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:src="@color/colorVang" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/changeXanhDaTroi"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:src="@color/colorXanhDaTroi" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="2dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/changeNau"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:src="@color/colorNau" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/changeXanhLaCay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:src="@color/colorXanhLaCay" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/changeTim"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:src="@color/colorTim" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/changeHong"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:src="@color/colorHong" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorWhite">#FFF</color>
+    <color name="colorBlack">#000</color>
+    <color name="colorCyan">#3ABEC0</color>
+    <color name="colorDoNhat">#FF5151</color>
+    <color name="colorXanhNuocBienDam">#227CD2</color>
+    <color name="colorDaCamNhat">#FF9700</color>
+    <color name="colorXanhNuocBienNhat">#3DA0D7</color>
+    <color name="colorDoDam">#F5171A</color>
+    <color name="colorVang">#EAC248</color>
+    <color name="colorXanhDaTroi">#00E5FF</color>
+    <color name="colorNau">#A20025</color>
+    <color name="colorXanhLaCay">#4BB050</color>
+    <color name="colorTim">#A44999</color>
+    <color name="colorHong">#FF4081</color>
+    <color name="colorHtong">#66F5171A</color>
+</resources>
