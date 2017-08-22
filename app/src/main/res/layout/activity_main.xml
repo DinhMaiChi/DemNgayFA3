@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="show"
+            android:text="@string/show"
             android:background="@color/colorDaCamNhat"
             android:textColor="@color/colorWhite" />
 
@@ -27,7 +27,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="FA DAY"
+            android:text="@string/fa_day"
             android:textSize="@dimen/sp32"
             android:textStyle="bold"
             android:textColor="@color/colorAccent" />
@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-            android:text="setting"
+            android:text="@string/btn_setting"
             android:background="@color/colorDaCamNhat"
             android:textColor="@color/colorWhite"
 
@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
-                android:text="Bạn FA"
+                android:text="@string/fa"
                 android:textSize="@dimen/sp24"
                 android:textColor="@color/colorWhite"
 
@@ -94,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:text="0"
+                android:text="@string/number_day"
                 android:textSize="@dimen/sp24"
                 android:textColor="@color/colorWhite" />
 
@@ -104,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:text="ngày"
+                android:text="@string/day"
                 android:textSize="@dimen/sp24"
                 android:textColor="@color/colorWhite" />
         </LinearLayout>
@@ -161,7 +161,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Năm"
+                        android:text="@string/year"
                         android:textColor="@color/colorWhite" />
 
                 </LinearLayout>
@@ -186,7 +186,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Tháng"
+                        android:text="@string/month"
                         android:textColor="@color/colorWhite" />
 
                 </LinearLayout>
@@ -211,7 +211,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Tuần"
+                        android:text="@string/week"
                         android:textColor="@color/colorWhite" />
 
                 </LinearLayout>
@@ -236,7 +236,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Ngày"
+                        android:text="@string/days"
                         android:textColor="@color/colorWhite" />
 
                 </LinearLayout>
@@ -261,7 +261,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Giờ"
+                        android:text="@string/hour"
                         android:textColor="@color/colorWhite" />
 
                 </LinearLayout>
@@ -286,7 +286,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Phút"
+                        android:text="@string/minute"
                         android:textColor="@color/colorWhite" />
 
                 </LinearLayout>
@@ -311,7 +311,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="giây"
+                        android:text="@string/second"
                         android:textColor="@color/colorWhite" />
 
                 </LinearLayout>

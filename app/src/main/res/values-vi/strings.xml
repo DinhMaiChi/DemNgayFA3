@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Dếm Ngày FA</string>
+    <string name="change_top">Đổi tiêu đề trên</string>
+    <string name="btn_cancel">Hủy</string>
+    <string name="btn_ok">Chấp nhận</string>
+    <string name="select_color">Chọn màu sắc</string>
+    <string name="change_bottom">Đổi tiêu đề dưới</string>
+    <string name="show">Chia sẻ</string>
+    <string name="btn_setting">Cài đặt</string>
+    <string name="fa_day">Ngày FA</string>
+    <string name="fa">FA</string>
+    <string name="number_day">0</string>
+    <string name="day">Ngày</string>
+    <string name="year">Năm</string>
+    <string name="month">Tháng</string>
+    <string name="week">Tuần</string>
+    <string name="days">Ngày</string>
+    <string name="hour">Giờ</string>
+    <string name="minute">Phút</string>
+    <string name="second">Giây</string>
+</resources>

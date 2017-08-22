@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.builder = new NotificationCompat.Builder(this);
         this.builder.setOngoing(true);
         this.builder.setAutoCancel(false);
-        builder.setSmallIcon(R.mipmap.ic_launcher);
+        builder.setSmallIcon(R.mipmap.icon);
         builder.setTicker("This is a ticker");
 
         // Sét đặt thời điểm sự kiện xẩy ra.

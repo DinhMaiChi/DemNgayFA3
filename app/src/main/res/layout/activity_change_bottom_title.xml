@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Đổi tiêu đề dưới"
+        android:text="@string/change_top"
         android:textColor="@color/colorWhite" />
 
     <EditText
@@ -33,7 +33,7 @@
             android:layout_marginRight="25dp"
             android:layout_weight="1"
             android:background="#99000000"
-            android:text="Hủy"
+            android:text="@string/btn_cancel"
             android:textAllCaps="false"
             android:textColor="@color/colorWhite"
 
@@ -47,7 +47,7 @@
             android:layout_marginRight="20dp"
             android:layout_weight="1"
             android:background="#99000000"
-            android:text="OK"
+            android:text="@string/btn_ok"
             android:textColor="@color/colorWhite" />
 
     </LinearLayout>
