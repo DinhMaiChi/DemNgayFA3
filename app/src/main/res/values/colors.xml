@@ -10,10 +10,10 @@
     <color name="colorXanhNuocBienDam">#227CD2</color>
     <color name="colorDaCamNhat">#FF9700</color>
     <color name="colorXanhNuocBienNhat">#3DA0D7</color>
-    <color name="colorDoDam">#F5171A</color>
+    <color name="colorDoDam">#f5171a</color>
     <color name="colorVang">#EAC248</color>
     <color name="colorXanhDaTroi">#00E5FF</color>
-    <color name="colorNau">#A20025</color>
+    <color name="colorNau">#560002</color>
     <color name="colorXanhLaCay">#4BB050</color>
     <color name="colorTim">#A44999</color>
     <color name="colorHong">#FF4081</color>

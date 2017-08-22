@@ -1,8 +1,8 @@
 package hoandeptraicompany.com.demngayfa.View;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 
@@ -58,7 +58,7 @@ public class ChangeColorActivity extends AppCompatActivity implements View.OnCli
         changeDoDam = (CircleImageView) findViewById(R.id.changeDoDam);
         changeVang = (CircleImageView) findViewById(R.id.changeVang);
         changeXanhDaTroi = (CircleImageView) findViewById(R.id.changeXanhDaTroi);
-        changeNau = (CircleImageView) findViewById(R.id.changeCyan);
+        changeNau = (CircleImageView) findViewById(R.id.changeNau);
         changeXanhLaCay = (CircleImageView) findViewById(R.id.changeXanhLaCay);
         changeTim = (CircleImageView) findViewById(R.id.changeTim);
         changeHong = (CircleImageView) findViewById(R.id.changeHong);
@@ -84,16 +84,16 @@ public class ChangeColorActivity extends AppCompatActivity implements View.OnCli
                 requestMainActivity("#3DA0D7", "#3c3DA0D7");
                 break;
             case R.id.changeDoDam:
-                requestMainActivity("#F5171A", "#3F5171A");
+                requestMainActivity("#F5171A", "#3cF5171A");
                 break;
             case R.id.changeVang:
                 requestMainActivity("#EAC248", "#3cEAC248");
                 break;
             case R.id.changeXanhDaTroi:
-                requestMainActivity("#EAC248", "3cEAC248");
+                requestMainActivity("#00E5FF", "#3cEAC248");
                 break;
             case R.id.changeNau:
-                requestMainActivity("#A20025", "3cA20025");
+                requestMainActivity("#560002", "#3c560002");
                 break;
             case R.id.changeXanhLaCay:
                 requestMainActivity("#4BB050", "#3c4BB050");

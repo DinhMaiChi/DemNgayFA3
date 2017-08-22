@@ -1,10 +1,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundbeauty"
+    android:id="@+id/activity_main"
+    android:background="@drawable/bg1"
     android:orientation="vertical">
 
+
     <LinearLayout
+        android:layout_marginTop="@dimen/dp32"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -16,6 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="show"
+            android:background="@color/colorDaCamNhat"
             android:textColor="@color/colorWhite" />
 
         <TextView
@@ -24,7 +28,9 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="FA DAY"
-            android:textColor="@color/colorWhite" />
+            android:textSize="@dimen/sp32"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent" />
 
         <Button
             android:id="@+id/btnSetting"
@@ -32,12 +38,23 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
             android:text="setting"
+            android:background="@color/colorDaCamNhat"
             android:textColor="@color/colorWhite"
 
             />
 
 
     </LinearLayout>
+
+    <Button
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/dp16"
+        android:id="@+id/btn_music"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/pause_circle"
+
+        />
 
     <FrameLayout
         android:layout_width="250dp"
@@ -48,7 +65,9 @@
             android:id="@+id/wvFA"
             android:layout_width="250dp"
             android:layout_height="250dp"
-            android:layout_gravity="center"></com.gelitenight.waveview.library.WaveView>
+            android:layout_gravity="center">
+
+        </com.gelitenight.waveview.library.WaveView>
 
         <LinearLayout
             android:id="@+id/lnSetTime"
@@ -64,6 +83,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
                 android:text="Bạn FA"
+                android:textSize="@dimen/sp24"
                 android:textColor="@color/colorWhite"
 
                 />
@@ -75,9 +95,8 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:text="0"
-                android:textColor="@color/colorWhite"
-
-                android:textSize="22sp" />
+                android:textSize="@dimen/sp24"
+                android:textColor="@color/colorWhite" />
 
             <TextView
                 android:id="@+id/txtBottomTitle"
@@ -86,23 +105,24 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:text="ngày"
+                android:textSize="@dimen/sp24"
                 android:textColor="@color/colorWhite" />
         </LinearLayout>
     </FrameLayout>
 
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <!--<de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/circleImageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:src="@drawable/alone" />
+        android:src="@drawable/alone" />-->
 
     <LinearLayout
-
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:orientation="horizontal">
 
         <LinearLayout

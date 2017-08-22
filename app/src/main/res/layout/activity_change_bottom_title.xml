@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Đổi tiêu đề trên"
+        android:text="Đổi tiêu đề dưới"
         android:textColor="@color/colorWhite" />
 
     <EditText

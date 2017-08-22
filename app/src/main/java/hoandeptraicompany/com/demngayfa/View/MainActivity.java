@@ -1,9 +1,5 @@
 package hoandeptraicompany.com.demngayfa.View;
 
-import android.animation.Animator;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.Notification;
@@ -12,28 +8,29 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ResolveInfo;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.media.MediaPlayer;
+import android.media.RingtoneManager;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
+import android.widget.RemoteViews;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gelitenight.waveview.library.WaveView;
 
-import org.w3c.dom.Text;
-
-import java.text.DecimalFormat;
-import java.util.ArrayList;
+import java.io.ByteArrayOutputStream;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -51,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final int RESULT_CHANGEBOTTOMTITLE = 3;
     public static final int REQUEST_CHANGECOLOR = 4;
     public static final int RESULT_CHANGECOLOR = 5;
+    public static final int REQUEST_CHANGE_BACKGROUND = 6;
+    public static final int RESULT_CHANGE_BACKGROUND = 7;
     private NotificationCompat.Builder builder;
     private TextView txtSencond;
     private TextView txtMinute;
@@ -63,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //    private int faDay, faMonth, faYear;
 //    private int coutFaDay;
     private Date dateFa;
-    private Button btnShow;
+    private Button btnShow, btnMusic;
     private Button btnSetting;
     private TextView txtToptitle;
     private TextView txtBottomTitle;
@@ -73,6 +72,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     WaveHelper mWaveHelper;
     private int mBorderColor = Color.parseColor("#44FFFFFF");
     private int mBorderWidth = 10;
+    private LinearLayout lnMain;
+    private MediaPlayer mediaPlayer;
+
+    public static final int STATE_PLAYING = 2;
+    public static final int STATE_PAUSE = 3;
+    private int state;
+    private boolean isPlaying;
 
 
     @Override
@@ -82,14 +88,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initComps();
         addEvent();
 
-
     }
 
     private void addEvent() {
         lnSetTime.setOnClickListener(this);
         btnShow.setOnClickListener(this);
         btnSetting.setOnClickListener(this);
-
+        btnMusic.setOnClickListener(this);
 
     }
 
@@ -102,6 +107,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void pushNotification() {
+
+        Uri notiSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
+        RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.notification_layout);
+        remoteViews.setTextViewText(R.id.tv_fa, "FA");
+        remoteViews.setTextViewText(R.id.tv_number_date, foreverAlone.getCountDayFA() + "");
+        remoteViews.setTextViewText(R.id.tv_date, "ngày");
+        remoteViews.setImageViewResource(R.id.imv_background, R.drawable.bg1);
+
         this.builder = new NotificationCompat.Builder(this);
         this.builder.setOngoing(true);
         this.builder.setAutoCancel(false);
@@ -117,26 +131,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Tạo một Intent
         Intent intent = new Intent(MainActivity.this, MainActivity.class);
 
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         // PendingIntent.getActivity(..) sẽ start mới một Activity và trả về
         // đối tượng PendingIntent.
         // Nó cũng tương đương với gọi Context.startActivity(Intent).
         PendingIntent pendingIntent = PendingIntent.getActivity(MainActivity.this, 1,
-                intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
 
         builder.setContentIntent(pendingIntent);
-
+        builder.setContent(remoteViews)
+                .setSound(notiSound);
         // Lấy ra dịch vụ thông báo (Một dịch vụ có sẵn của hệ thống).
-        NotificationManager notificationService =
-                (NotificationManager) MainActivity.this.getSystemService(Context.NOTIFICATION_SERVICE);
+        /*NotificationManager notificationService =
+                (NotificationManager) MainActivity.this.getSystemService(Context.NOTIFICATION_SERVICE);*/
 
         // Xây dựng thông báo và gửi nó lên hệ thống.
 
+        /*Notification.Builder noti = new Notification.Builder(this);
+        noti.setContentTitle("Title")
+                .setOngoing(true)
+                .setAutoCancel(true)
+                .setContentIntent(pendingIntent)
+                .setContentTitle("this is content")
+                .setSmallIcon(R.mipmap.ic_launcher);*/
+
+        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
         Notification notification = builder.build();
-        notificationService.notify(2, notification);
-
-
+        manager.notify(2, notification);
     }
 
 
@@ -147,6 +171,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int thang = share.getInt("thang", cal.get(Calendar.MONTH));
         int nam = share.getInt("nam", cal.get(Calendar.YEAR));
         foreverAlone = new ForeverAlone(ngay, thang, nam);
+        int id = share.getInt("background", R.drawable.bg1);
+        lnMain = (LinearLayout) findViewById(R.id.activity_main);
+        Log.d("kiemtraid", id + "");
+        lnMain.setBackgroundResource(id);
     }
 
 //    private void initDateLove() {
@@ -162,7 +190,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void coungtingDay() {
         Timer T = new Timer();
-
         T.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
@@ -192,6 +219,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void findView() {
+        lnMain = (LinearLayout) findViewById(R.id.activity_main);
         txtSencond = (TextView) findViewById(R.id.txtSecond);
         txtMinute = (TextView) findViewById(R.id.txtMinute);
         txtHour = (TextView) findViewById(R.id.txtHour);
@@ -205,22 +233,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtBottomTitle = (TextView) findViewById(R.id.txtBottomTitle);
         txtToptitle = (TextView) findViewById(R.id.txtTopTitle);
         txtCountDayFA = (TextView) findViewById(R.id.txtCountDayFA);
+        btnMusic = (Button) findViewById(R.id.btn_music);
 
+        mediaPlayer = MediaPlayer.create(this, R.raw.fa);
+        mediaPlayer.start();
+
+        state = STATE_PLAYING;
 
         waveView = (WaveView) findViewById(R.id.wvFA);
-        startAnim("#F5171A", "#3cF5171A");
+
+        SharedPreferences sharedPreferences = getSharedPreferences("appfa", MODE_PRIVATE);
+        String colorwave = sharedPreferences.getString("colorwave", "#227CD2");
+        String colorwaveshadow = sharedPreferences.getString("shadowcolorwave", "#3c227CD2");
+
+        startAnim(colorwave, colorwaveshadow);
+    //    startAnim("#227CD2", "#3c227CD2");
 
 
     }
 
+
     public void startAnim(String color, String shadow) {
         waveView.setBorder(mBorderWidth, mBorderColor);
         float level = 0f;
-        if (foreverAlone.getCountDayFA() / 100 > 1) {
+        int cout = foreverAlone.getCountDayFA();
+        if (foreverAlone.getCountDayFA() / 100.0 > 1) {
             level = 1f;
         } else {
-            level = foreverAlone.getCountDayFA() / 100;
+            level = foreverAlone.getCountDayFA() / 100.0f ;
         }
+        Log.d("kiemtralevel", cout/100 + "-" + cout);
         mWaveHelper = new WaveHelper(waveView, level);
         waveView.setShapeType(WaveView.ShapeType.CIRCLE);
         waveView.setBorder(mBorderWidth, mBorderColor);
@@ -279,13 +321,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 showDialog();
                 break;
             case R.id.btnShown:
-                Intent share = new Intent(Intent.ACTION_SEND);
-                share.setType("image/jpeg");
+                View rootView = findViewById(android.R.id.content).getRootView();
+                initShareIntent(MainActivity.this, "com.facebook.katana", getScreenShot(rootView));
+                break;
+            case R.id.btn_music:
+                if (state == STATE_PLAYING) {
+                    mediaPlayer.pause();
+                    btnMusic.setBackgroundResource(R.drawable.play_circle);
+                    state = STATE_PAUSE;
+                } else {
+                    mediaPlayer.start();
+                    state = STATE_PLAYING;
+                    btnMusic.setBackgroundResource(R.drawable.pause_circle);
+                }
 
-                share.putExtra(Intent.EXTRA_STREAM,
-                        Uri.parse("file:///sdcard/DCIM/Camera/myPic.jpg"));
-
-                startActivity(Intent.createChooser(share, "Share Image"));
                 break;
 
             default:
@@ -293,11 +342,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
+    public static void initShareIntent(Context context, String type, Bitmap shareBody) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        shareBody.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(context.getContentResolver(), shareBody, "Title", null);
+        Uri imageUri = Uri.parse(path);
 
+        boolean found = false;
+        Intent share = new Intent(android.content.Intent.ACTION_SEND);
+        share.setType("image/jpeg");
+
+        // gets the list of intents that can be loaded.
+        List<ResolveInfo> resInfo = context.getPackageManager().queryIntentActivities(share, 0);
+        if (!resInfo.isEmpty()){
+            for (ResolveInfo info : resInfo) {
+                if (info.activityInfo.packageName.toLowerCase().contains(type) ||
+                        info.activityInfo.name.toLowerCase().contains(type)) {
+                    share.putExtra(Intent.EXTRA_STREAM, imageUri);
+                    share.setPackage(info.activityInfo.packageName);
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                Toast.makeText(context, "Ứng dụng này chưa được cài đặt", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            context.startActivity(Intent.createChooser(share, "Share via"));
+        }
     }
+
+    public static Bitmap getScreenShot(View view) {
+        View screenView = view.getRootView();
+        screenView.setDrawingCacheEnabled(true);
+        Bitmap bitmap = Bitmap.createBitmap(screenView.getDrawingCache());
+        screenView.setDrawingCacheEnabled(false);
+        return bitmap;
+    }
+
 
     private void showDialog() {
         final Dialog dialog = new Dialog(this);
@@ -350,6 +433,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        TextView txtChangeBackground = (TextView) dialog.findViewById(R.id.txtChangeBackground);
+        txtChangeBackground.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), ChangeBackgroundActivity.class);
+                startActivityForResult(i, REQUEST_CHANGE_BACKGROUND);
+                dialog.cancel();
+            }
+        });
+
 
     }
 
@@ -370,6 +463,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 editor.putInt("nam", year);
                 editor.commit();
                 foreverAlone = new ForeverAlone(dayOfMonth, month, year);
+                String colorwave = share.getString("colorwave", "#227CD2");
+                String colorwaveshadow = share.getString("shadowcolorwave", "#3c227CD2");
+                startAnim(colorwave, colorwaveshadow);
 
 
             }
@@ -400,11 +496,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (resultCode == RESULT_CHANGECOLOR) {
                 String newTitle = data.getStringExtra("codeColor");
                 Log.d("kiemtramau", newTitle);
+                SharedPreferences share = getSharedPreferences("appfa", MODE_PRIVATE);
+                SharedPreferences.Editor editor = share.edit();
                 String shadowColor = data.getStringExtra("shadowColor");
+                editor.putString("colorwave", newTitle);
+                editor.putString("shadowcolorwave", shadowColor);
+                editor.commit();
                 startAnim(newTitle, shadowColor);
             }
         }
 
-        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CHANGE_BACKGROUND) {
+            if (resultCode == RESULT_CHANGE_BACKGROUND) {
+                int idBackground = data.getIntExtra("123", 0);
+//                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//                int idBackground = sharedPreferences.getInt("1", 0);
+                Log.d("ID Background", idBackground + "");
+                SharedPreferences share = getSharedPreferences("appfa", MODE_PRIVATE);
+                SharedPreferences.Editor editor = share.edit();
+                editor.putInt("background", idBackground);
+                editor.commit();
+                lnMain.setBackgroundResource(idBackground);
+
+            }
+
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+
     }
+
+
+
+    @Override
+    protected void onDestroy() {
+        mediaPlayer.stop();
+        mediaPlayer.release();
+        super.onDestroy();
+    }
+
+
 }
