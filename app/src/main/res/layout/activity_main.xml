@@ -1,46 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/activity_main"
+    android:background="@drawable/b9">
+
+    <FrameLayout
+        android:id="@+id/fm_app_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:gravity="center"
+            android:layout_marginTop="@dimen/dp30"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp50"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/btnShown"
+                android:layout_width="@dimen/dp40"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp20"
+                android:src="@drawable/btn_share" />
+
+            <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
+                android:id="@+id/tv_app_name"
+                android:layout_toRightOf="@+id/btnShown"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/fa_day"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/sp32"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/btnSetting"
+                android:layout_toRightOf="@+id/tv_app_name"
+                android:layout_width="@dimen/dp40"
+                android:layout_height="@dimen/dp40"
+                android:layout_marginRight="@dimen/dp20"
+                android:src="@drawable/btn_setting"
+                />
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/bt_wave"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/fm_app_name"
+        android:layout_marginTop="@dimen/dp30"
+        android:layout_width="@dimen/dp250"
+        android:layout_height="@dimen/dp250">
+
+        <com.gelitenight.waveview.library.WaveView
+            android:id="@+id/wvFA"
+            android:layout_width="@dimen/dp250"
+            android:layout_height="@dimen/dp250"
+            android:layout_gravity="center">
+
+        </com.gelitenight.waveview.library.WaveView>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fm_txt_count"
+        android:layout_below="@+id/fm_app_name"
+        android:layout_marginTop="@dimen/dp30"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/lnSetTime"
+            android:layout_width="@dimen/dp250"
+            android:layout_height="@dimen/dp250"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
+                android:id="@+id/txtTopTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/dp20"
+                android:text="@string/fa"
+                android:layout_centerHorizontal="true"
+                android:textSize="@dimen/sp24"
+                android:textColor="@color/colorWhite"
+
+                />
+
+            <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
+                android:id="@+id/txtCountDayFA"
+                android:layout_marginLeft="@dimen/dp8"
+                android:layout_below="@+id/txtTopTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_centerHorizontal="true"
+                android:text="@string/number_day"
+                android:textSize="@dimen/sp32"
+                android:textColor="@color/colorWhite" />
+
+            <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
+                android:id="@+id/txtBottomTitle"
+                android:layout_marginLeft="@dimen/dp8"
+                android:layout_below="@+id/txtCountDayFA"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp10"
+                android:text="@string/day"
+                android:textSize="@dimen/sp24"
+                android:textColor="@color/colorWhite" />
+        </RelativeLayout>
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <RelativeLayout
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp90"
+                android:layout_gravity="bottom"
+                android:background="#66000000"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp5"
+                    android:layout_marginRight="@dimen/dp5"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
+                            android:id="@+id/txtYear"
+                            android:layout_width="@dimen/dp40"
+                            android:layout_height="@dimen/dp40"
+                            android:layout_gravity="center"
+                            android:background="@drawable/drawable_circle"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="@color/colorWhite" />
+
+                        <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/year"
+                            android:textColor="@color/colorWhite" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
+                            android:id="@+id/txtMonth"
+                            android:layout_width="@dimen/dp40"
+                            android:layout_height="@dimen/dp40"
+                            android:layout_gravity="center"
+                            android:background="@drawable/drawable_circle"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="@color/colorWhite" />
+
+                        <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/month"
+                            android:textColor="@color/colorWhite" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
+                            android:id="@+id/txtWeek"
+                            android:layout_width="@dimen/dp40"
+                            android:layout_height="@dimen/dp40"
+                            android:layout_gravity="center"
+                            android:background="@drawable/drawable_circle"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="@color/colorWhite" />
+
+                        <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/week"
+                            android:textColor="@color/colorWhite" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
+                            android:id="@+id/txtDay"
+                            android:layout_width="@dimen/dp40"
+                            android:layout_height="@dimen/dp40"
+                            android:layout_gravity="center"
+                            android:background="@drawable/drawable_circle"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="@color/colorWhite" />
+
+                        <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/days"
+                            android:textColor="@color/colorWhite" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
+                            android:id="@+id/txtHour"
+                            android:layout_width="@dimen/dp40"
+                            android:layout_height="@dimen/dp40"
+                            android:layout_gravity="center"
+                            android:background="@drawable/drawable_circle"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="@color/colorWhite" />
+
+                        <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/hour"
+                            android:textColor="@color/colorWhite" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
+                            android:id="@+id/txtMinute"
+                            android:layout_width="@dimen/dp40"
+                            android:layout_height="@dimen/dp40"
+                            android:layout_gravity="center"
+                            android:background="@drawable/drawable_circle"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="@color/colorWhite" />
+
+                        <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/minute"
+                            android:textColor="@color/colorWhite" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
+                            android:id="@+id/txtSecond"
+                            android:layout_width="@dimen/dp40"
+                            android:layout_height="@dimen/dp40"
+                            android:layout_gravity="center"
+                            android:background="@drawable/drawable_circle"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="@color/colorWhite" />
+
+                        <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/second"
+                            android:textColor="@color/colorWhite" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </FrameLayout>
+
+
+    <com.github.glomadrian.grav.GravView
+        android:id="@+id/grav"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        app:colorGenerator="com.github.glomadrian.grav.generator.paint.ArrayColorGenerator"
+        app:array_colors="@array/bubble"
+        app:pointGenerator="com.github.glomadrian.grav.generator.point.RegularPointGenerator"
+        app:regular_cell_size="300"
+        app:regular_variance="200"
+        app:gravGenerator="com.github.glomadrian.grav.generator.grav.BallGenerator"
+        app:ball_from_size="10dp"
+        app:ball_to_size="20dp"
+        app:animationGenerators="@array/BubbleAnimations"
+        app:side_to_side_min_duration="10000"
+        app:side_to_side_max_duration="10000"
+        app:side_to_side_direction="leftToRight"
+        app:shake_direction="vertical"
+        app:shake_min_duration="10000"
+        app:shake_max_duration="20000"
+        app:shake_variance="500dp"
+        />
+
+
+</RelativeLayout>
+
+
+<!--
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:background="@drawable/bg1"
     android:orientation="vertical">
 
 
     <LinearLayout
-        android:layout_marginTop="@dimen/dp32"
+        android:layout_marginTop="@dimen/dp50"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/dp50"
         android:orientation="horizontal">
 
-        <Button
-
+        <ImageView
             android:id="@+id/btnShown"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="@string/show"
-            android:background="@color/colorDaCamNhat"
-            android:textColor="@color/colorWhite" />
-
-        <TextView
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/dp40"
             android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp20"
+            android:src="@drawable/share" />
+
+        <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne_B
+            android:id="@+id/tv_app_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/fa_day"
+            android:textColor="@color/colorAccent"
             android:textSize="@dimen/sp32"
-            android:textStyle="bold"
-            android:textColor="@color/colorAccent" />
+            android:textStyle="bold" />
 
-        <Button
+        <ImageView
             android:id="@+id/btnSetting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:text="@string/btn_setting"
-            android:background="@color/colorDaCamNhat"
-            android:textColor="@color/colorWhite"
-
+            android:layout_width="@dimen/dp40"
+            android:layout_height="@dimen/dp40"
+            android:layout_marginRight="@dimen/dp20"
+            android:src="@drawable/btn_setting"
             />
 
 
@@ -50,84 +411,77 @@
         android:layout_gravity="center"
         android:layout_margin="@dimen/dp16"
         android:id="@+id/btn_music"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/dp50"
+        android:layout_height="@dimen/dp50"
         android:background="@drawable/pause_circle"
 
         />
 
     <FrameLayout
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_marginTop="@dimen/dp8"
+        android:layout_width="@dimen/dp250"
+        android:layout_height="@dimen/dp250"
         android:layout_gravity="center">
 
         <com.gelitenight.waveview.library.WaveView
             android:id="@+id/wvFA"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:layout_width="@dimen/dp250"
+            android:layout_height="@dimen/dp250"
             android:layout_gravity="center">
 
         </com.gelitenight.waveview.library.WaveView>
 
         <LinearLayout
             android:id="@+id/lnSetTime"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            android:layout_gravity="center"
+            android:layout_width="@dimen/dp250"
+            android:layout_height="@dimen/dp250"
+            android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
+            <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne_B
                 android:id="@+id/txtTopTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="@dimen/dp20"
                 android:text="@string/fa"
                 android:textSize="@dimen/sp24"
                 android:textColor="@color/colorWhite"
 
                 />
 
-            <TextView
+            <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne_B
                 android:id="@+id/txtCountDayFA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/dp10"
                 android:text="@string/number_day"
-                android:textSize="@dimen/sp24"
+                android:textSize="@dimen/sp32"
                 android:textColor="@color/colorWhite" />
 
-            <TextView
+            <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne_B
                 android:id="@+id/txtBottomTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/dp10"
                 android:text="@string/day"
                 android:textSize="@dimen/sp24"
                 android:textColor="@color/colorWhite" />
         </LinearLayout>
     </FrameLayout>
 
-
-    <!--<de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/alone" />-->
-
     <LinearLayout
-        android:layout_weight="1"
+        android:background="@android:color/transparent"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/dp0"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="90dp"
+            android:layout_height="@dimen/dp90"
             android:layout_gravity="bottom"
             android:background="#66000000"
             android:orientation="vertical">
@@ -135,9 +489,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginLeft="@dimen/dp5"
+                android:layout_marginRight="@dimen/dp5"
+                android:layout_marginTop="@dimen/dp10"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -146,17 +500,17 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <TextView
+                    <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
                         android:id="@+id/txtYear"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="@dimen/dp40"
+                        android:layout_height="@dimen/dp40"
                         android:layout_gravity="center"
                         android:background="@drawable/drawable_circle"
                         android:gravity="center"
                         android:text="0"
                         android:textColor="@color/colorWhite" />
 
-                    <TextView
+                    <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
                         android:id="@+id/textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -172,17 +526,17 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <TextView
+                    <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
                         android:id="@+id/txtMonth"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="@dimen/dp40"
+                        android:layout_height="@dimen/dp40"
                         android:layout_gravity="center"
                         android:background="@drawable/drawable_circle"
                         android:gravity="center"
                         android:text="0"
                         android:textColor="@color/colorWhite" />
 
-                    <TextView
+                    <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -197,17 +551,17 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <TextView
+                    <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
                         android:id="@+id/txtWeek"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="@dimen/dp40"
+                        android:layout_height="@dimen/dp40"
                         android:layout_gravity="center"
                         android:background="@drawable/drawable_circle"
                         android:gravity="center"
                         android:text="0"
                         android:textColor="@color/colorWhite" />
 
-                    <TextView
+                    <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -222,17 +576,17 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <TextView
+                    <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
                         android:id="@+id/txtDay"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="@dimen/dp40"
+                        android:layout_height="@dimen/dp40"
                         android:layout_gravity="center"
                         android:background="@drawable/drawable_circle"
                         android:gravity="center"
                         android:text="0"
                         android:textColor="@color/colorWhite" />
 
-                    <TextView
+                    <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -247,17 +601,17 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <TextView
+                    <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
                         android:id="@+id/txtHour"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="@dimen/dp40"
+                        android:layout_height="@dimen/dp40"
                         android:layout_gravity="center"
                         android:background="@drawable/drawable_circle"
                         android:gravity="center"
                         android:text="0"
                         android:textColor="@color/colorWhite" />
 
-                    <TextView
+                    <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -272,17 +626,17 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <TextView
+                    <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
                         android:id="@+id/txtMinute"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="@dimen/dp40"
+                        android:layout_height="@dimen/dp40"
                         android:layout_gravity="center"
                         android:background="@drawable/drawable_circle"
                         android:gravity="center"
                         android:text="0"
                         android:textColor="@color/colorWhite" />
 
-                    <TextView
+                    <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -297,17 +651,17 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <TextView
+                    <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
                         android:id="@+id/txtSecond"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="@dimen/dp40"
+                        android:layout_height="@dimen/dp40"
                         android:layout_gravity="center"
                         android:background="@drawable/drawable_circle"
                         android:gravity="center"
                         android:text="0"
                         android:textColor="@color/colorWhite" />
 
-                    <TextView
+                    <hoandeptraicompany.com.demngayfa.Fonts.UTMAndrogyne
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -323,3 +677,4 @@
     </LinearLayout>
 
 </LinearLayout>
+-->
